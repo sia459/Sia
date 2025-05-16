@@ -1,1 +1,173 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Sia 💖</title>
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: #fff;
+      position: relative;
+    }
+
+    .container {
+      text-align: center;
+      padding: 2rem;
+      animation: fadeInUp 1s ease-out;
+      z-index: 2;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    p {
+      font-size: 1.1rem;
+      max-width: 400px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+      white-space: pre-line;
+      font-style: italic;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 30px;
+      background-color: white;
+      color: #ff69b4;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background-color: #ffe6f0;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Floating Hearts */
+    .hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: pink;
+      transform: rotate(45deg);
+      border-radius: 2px;
+      animation: floatUp 8s infinite ease-in;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -7.5px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -7.5px;
+      top: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        bottom: -20px;
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        bottom: 100vh;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Hi Sia 💕</h1>
+    <p>"Na mimiss na kita🥹 Pag ako nah offline tyaka ka naman mag oonline.Sana dika mag sawa maghintay sakin Pero sure ako na babalik akoBasta tumupad lang tayo sa mga last chats Naghihintay parin ako nMiss you!!!"</p>
+    <button onclick="showNextMessage()">Click Me Multiple times 😊</button>
+  </div>
+
+  <!-- Heart Particles -->
+  <div class="hearts" id="hearts"></div>
+
+  <script>
+    const messages = [
+      "You're always on my mind, even when I'm not online. click mo ulit",
+      "Thank you for waiting for me, it means everything. click mo ulit",
+      "I miss you more than words can say. click mo ulit",
+      "Every time I come back, it's because of you. click mo ulit",
+      "I promise to keep coming back to you."
+    ];
+
+    let index = 0;
+
+    function showNextMessage() {
+      if (index < messages.length) {
+        alert(messages[index]);
+        index++;
+      } else {
+        alert("And I'll never stop missing you when you're gone ❤️");
+        index = 0; // restart loop
+      }
+    }
+
+    // Generate Hearts
+    const heartsContainer = document.getElementById('hearts');
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.animationDuration = (6 + Math.random() * 4) + 's';
+      heart.style.width = heart.style.height = (10 + Math.random() * 15) + 'px';
+      heartsContainer.appendChild(heart);
+    }
+  </script>
+
+</body>
+</html>
