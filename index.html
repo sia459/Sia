@@ -48,6 +48,13 @@
       font-style: italic;
     }
 
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
     button {
       padding: 12px 24px;
       font-size: 1rem;
@@ -63,6 +70,14 @@
     button:hover {
       transform: scale(1.05);
       background-color: #ffe6f0;
+    }
+
+    img.happy-gif {
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+      display: none;
+      border-radius: 10px;
     }
 
     @keyframes fadeInUp {
@@ -127,47 +142,61 @@
 </head>
 <body>
 
-  <div class="container">
-    <h1>Hi Sia 💕</h1>
-    <p>"I'm really sorry for being distant lately. I know my silence might've hurt you, and I hate that. Thank you for still waiting, even when I wasn't there. I miss you more than words can say. And I promise — I'll do better."</p>
-    <button onclick="showNextMessage()">Click Me Multiple Times 😊</button>
+<div class="container">
+  <h1>Hi Sia 💕</h1>
+  <p>"I'm really sorry for being distant lately. I know my silence might've hurt you, and I hate that. Thank you for still waiting, even when I wasn't there. I miss you more than words can say. And I promise — I'll do better."</p>
+
+  <div id="buttons">
+    <div class="button-group">
+      <button id="yesBtn">Yes ❤️</button>
+      <button id="noBtn">No 😢</button>
+    </div>
   </div>
 
-  <!-- Heart Particles -->
-  <div class="hearts" id="hearts"></div>
+  <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif " alt="Happy Couple Hug" class="happy-gif" id="happyGif">
+</div>
 
-  <script>
-    const messages = [
-      "I know I haven't been around enough, and I’m sorry for that.",
-      "Thank you for holding on, even when I wasn’t giving my best.",
-      "Every time I come back online, it's because I’m thinking of you.",
-      "Please know how much you mean to me — I never want to lose that.",
-      "And I’ll keep coming back, just for you."
-    ];
+<!-- Heart Particles -->
+<div class="hearts" id="hearts"></div>
 
-    let index = 0;
+<script>
+  const yesBtn = document.getElementById('yesBtn');
+  const noBtn = document.getElementById('noBtn');
+  const happyGif = document.getElementById('happyGif');
+  const buttons = document.getElementById('buttons');
 
-    function showNextMessage() {
-      if (index < messages.length) {
-        alert(messages[index]);
-        index++;
-      } else {
-        alert("Because no matter what happens, I care about you deeply ❤️");
-        index = 0; // restart loop
-      }
+  let noClickCount = 0;
+
+  yesBtn.addEventListener('click', () => {
+    buttons.style.display = 'none';
+    happyGif.style.display = 'block';
+  });
+
+  noBtn.addEventListener('click', () => {
+    noClickCount++;
+
+    if (noClickCount === 1) {
+      yesBtn.style.padding = '15px 30px';
+      noBtn.style.padding = '8px 16px';
+    } else if (noClickCount === 2) {
+      yesBtn.style.padding = '18px 36px';
+      noBtn.style.padding = '6px 12px';
+    } else if (noClickCount === 3) {
+      noBtn.style.display = 'none';
     }
+  });
 
-    // Generate Hearts
-    const heartsContainer = document.getElementById('hearts');
-    for (let i = 0; i < 30; i++) {
-      const heart = document.createElement('div');
-      heart.classList.add('heart');
-      heart.style.left = Math.random() * 100 + '%';
-      heart.style.animationDuration = (6 + Math.random() * 4) + 's';
-      heart.style.width = heart.style.height = (10 + Math.random() * 15) + 'px';
-      heartsContainer.appendChild(heart);
-    }
-  </script>
+  // Generate Hearts
+  const heartsContainer = document.getElementById('hearts');
+  for (let i = 0; i < 30; i++) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * 100 + '%';
+    heart.style.animationDuration = (6 + Math.random() * 4) + 's';
+    heart.style.width = heart.style.height = (10 + Math.random() * 15) + 'px';
+    heartsContainer.appendChild(heart);
+  }
+</script>
 
 </body>
 </html>
